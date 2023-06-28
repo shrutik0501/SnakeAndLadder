@@ -10,35 +10,36 @@ namespace SnakeAndLadder
     {
         public void Game()
         {
+            int start_position = 0;
             int position = 0;
             int Count = 0;
-            Random random = new Random();
-            int dice = random.Next(1, 7);
-            Console.WriteLine("The dice rolled to " + dice);
-            position += dice;
-            Console.WriteLine("Position of the player = " + position);
-            Random ran = new Random();
-            int c = ran.Next(3);
+            int Winning_Position = 100;
 
-            switch (c)
+            while (position < Winning_Position)
             {
+                Random random = new Random();
+                int dice = random.Next(1, 7);
+                Console.WriteLine("The dice rolled to " + dice);
+                position += dice;
+                Console.WriteLine("Position of the player = " + position);
+                if (position == Winning_Position)
+                {
+                    Console.WriteLine("The player poisition is " + (position));
 
-                case 1:
-                    Console.WriteLine("It's ladder");
-                    position += dice;
-                    break;
-                case 2:
-                    Console.WriteLine("It's Sanke");
-                    position -= dice;
-                    break;
-                default:
-                    Console.WriteLine("No Play the player will be in same place");
-                    break;
+                    Console.WriteLine("GameOver");
+                }
+                else if (position > Winning_Position)
+                {
 
+                    Console.WriteLine("The player Remains in poisition  " + start_position);
+                }
+                // Console.WriteLine("The player position moved to : " + position);
             }
             Console.WriteLine("The player position moved to : " + position);
+
         }
     }
+    
 }
     
 
